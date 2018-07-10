@@ -67,13 +67,21 @@ def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, holiday|
      puts "#{season.to_s.capitalize!}:"
    holiday.each do |holiday, supply|
-    holiDay = holiday.to_s.split('_').capitalize!.join(' ')
-+     supply.each do |supply, supply_item|
-     puts "#{holiDay} : #{supply_item.split(" ").capitalize!.join(' ')}"
+    holiDay = holiday.to_s.split('_')
+    holiDay.each do |holiday_part|
+      holiday_part.capitalize!
+      holiDay.join(' ')
+     supply.each do |supply, supply_item|
+        wowVar = supply_item.to_s.split(" ")
+        wowVar.each do |supply_word|
+          lastVar = supply_word.capitalize!.join(' ')
+     puts "#{holiDay} : #{lastVar}"
          end 
      end
    end
   end
+end
+end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
